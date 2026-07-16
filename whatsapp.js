@@ -20,61 +20,86 @@ export const trackingMessage = (number, link) => `Dear Customer,\n\nYour parcel 
  * 98765-43210       -> 919876543210
  */
 
+// whatsapp.js
+
 export function cleanPhone(phone) {
 
     phone = String(phone || "").trim();
-
-    // Remove spaces, +, -, (, )
     phone = phone.replace(/\D/g, "");
 
-    // Already in correct format
-    if (phone.startsWith("91") && phone.length === 12) {
+    if (phone.startsWith("91") && phone.length === 12)
         return phone;
-    }
 
-    // Starts with 0
-    if (phone.startsWith("0") && phone.length === 11) {
+    if (phone.startsWith("0") && phone.length === 11)
         return "91" + phone.substring(1);
-    }
 
-    // Only 10 digits
-    if (phone.length === 10) {
+    if (phone.length === 10)
         return "91" + phone;
-    }
 
-    // Return original cleaned number
     return phone;
 }
 
-/**
- * Opens WhatsApp chat.
- */
 export function openWhatsApp(phone, message) {
 
     const mobile = cleanPhone(phone);
 
-    if (!mobile) {
-        throw new Error("A WhatsApp number is required.");
-    }
+    if (!mobile)
+        throw new Error("WhatsApp number is required.");
 
-    const url =
-        `https://wa.me/${mobile}?text=${encodeURIComponent(message)}`;
-
-    window.open(url, "_blank", "noopener");
+    window.open(
+        `https://wa.me/${mobile}?text=${encodeURIComponent(message)}`,
+        "_blank",
+        "noopener"
+    );
 }
 
-/**
- * Default booking message.
- */
-export function bookingMessage() {
+// CUSTOMER / RESELLER MESSAGE
+
+export function bookingMessage(type = "customer") {
+
+    if (type === "reseller") {
+
+        return `THANK YOU FOR PLACING YOUR ORDER.
+
+YOUR ORDER HAS BEEN PACKED AND SHIPPED.
+
+TRACKING DETAILS WILL BE SHARED SHORTLY.`;
+
+    }
+
+    return `THANK YOU FOR PLACING YOUR ORDER WITH PAVAN HANDLOOMS.
+
+YOUR PATTU SAREE HAS BEEN PACKED AND SHIPPED.
+
+TRACKING DETAILS WILL BE SHARED SHORTLY.`;
+
+}
+
+// PRINT MESSAGE
+
+export function printMessage() {
 
     return `Thank You for placing your order.
-Your parcel has been packed successfully.
-Courier Tracking details will be shared shortly.
+
+Tracking details will be shared shortly.`;
+
+}
+
+export function trackingMessage(number, link) {
+
+    return `Dear Customer,
+
+Your parcel has been shipped.
+
+Tracking Number:
+${number}
+
+Track Here:
+${link}
+
 Thank You.`;
 
 }
-
 /**
  * Tracking message.
  */
