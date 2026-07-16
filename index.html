@@ -1,12 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
-
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#7c251d">
-  <title>PH Dispatch</title>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><link rel="stylesheet" href="style.css">
+  <meta name="theme-color" content="#7c251d"><title>PH Dispatch</title>
+  <link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
   <aside class="sidebar" id="sidebar"><div class="brand"><i class="fa-solid fa-box"></i> PH Dispatch</div><nav>
@@ -32,5 +29,4 @@
     <section id="settings" class="page"><div class="panel"><h2>Settings</h2><p>PH Dispatch stores all bookings, customers, and resellers securely in your Firestore project. WhatsApp messages open in WhatsApp Web/app for final sending.</p></div></section>
   </main><template id="trackingTemplate"><article class="shipment-card"><div><strong class="order"></strong><span class="status-pill">Pending</span></div><h3 class="name"></h3><p class="phone"></p><p class="courier"></p><label>Tracking number<input class="tracking-input" required></label><button class="primary send-tracking"><i class="fa-brands fa-whatsapp"></i> Send tracking</button></article></template>
   <script type="module" src="app.js"></script>
-  
 </body></html>
