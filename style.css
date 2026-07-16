@@ -42,3 +42,80 @@ padding:25px;text-align:center}@media(max-width:760px)
 #toast.error{
     border-left-color:#e74c3c;
 }
+/* ===========================
+   Mobile Responsive
+=========================== */
+
+@media screen and (max-width: 768px) {
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .sidebar{
+        position:fixed;
+        left:-280px;
+        top:0;
+        width:260px;
+        height:100%;
+        z-index:1000;
+        transition:.3s;
+    }
+
+    .sidebar.active{
+        left:0;
+    }
+
+    .main{
+        margin-left:0 !important;
+        width:100%;
+        padding:15px;
+    }
+
+    .top{
+        display:flex;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .top div{
+        width:100%;
+    }
+
+    input,
+    textarea,
+    select{
+        width:100%;
+        font-size:16px;
+        box-sizing:border-box;
+    }
+
+    .card{
+        width:100%;
+        margin-bottom:15px;
+    }
+
+    .buttons{
+        display:flex;
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .buttons button{
+        width:100%;
+        padding:15px;
+        font-size:17px;
+    }
+
+    .radioGroup{
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .shipmentCard{
+        width:100%;
+        box-sizing:border-box;
+    }
+
+}
