@@ -16,12 +16,7 @@
       <label>Customer name<input id="customerName" required list="customerOptions" autocomplete="off"><datalist id="customerOptions"></datalist></label><label>WhatsApp number<input id="mobile" required inputmode="tel"></label>
       <label class="full">To address<textarea id="toAddress" required rows="3"></textarea></label>
       <fieldset class="full"><legend>From address</legend><label><input type="radio" name="senderType" value="customer" checked> Pavan Handlooms</label><label><input type="radio" name="senderType" value="reseller"> Reseller</label><select id="resellerSelect" hidden><option value="">Select reseller</option></select><textarea id="fromAddress" rows="3" readonly></textarea></fieldset>
-      <select id="courier" required>
-    <option value="DTDC" selected>DTDC</option>
-    <option value="APSRTC">APSRTC</option>
-    <option value="Indian Post">Indian Post</option>
-    <option value="Professional Courier">Professional Courier</option>
-</select>
+      <label>Courier<select id="courier" required><option value="">Select courier</option><option>DTDC</option><option>India Post</option><option>Blue Dart</option><option>Delhivery</option><option>Professional Courier</option><option>ST Courier</option><option>XpressBees</option></select></label>
       <label class="full">Message<textarea id="message" rows="4"></textarea></label>
       <div class="actions full"><button class="primary" type="submit"><i class="fa-solid fa-floppy-disk"></i> Save</button><button type="button" id="printDraft"><i class="fa-solid fa-print"></i> Print label</button><button type="button" id="notifyDraft"><i class="fa-brands fa-whatsapp"></i> Notify customer</button><button type="button" id="cancelEdit" hidden>Cancel edit</button></div>
     </form></div></section>
@@ -33,5 +28,5 @@
     <section id="reports" class="page"><div class="panel"><div class="toolbar"><label>Month <input id="reportMonth" type="month"></label><button id="exportCsv"><i class="fa-solid fa-file-csv"></i> Export CSV</button><button id="printReport"><i class="fa-solid fa-print"></i> Print</button></div><div id="reportSummary" class="stats"></div><div id="courierReport"></div></div></section>
     <section id="settings" class="page"><div class="panel"><h2>Settings</h2><p>PH Dispatch stores all bookings, customers, and resellers securely in your Firestore project. WhatsApp messages open in WhatsApp Web/app for final sending.</p></div></section>
   </main><template id="trackingTemplate"><article class="shipment-card"><div><strong class="order"></strong><span class="status-pill">Pending</span></div><h3 class="name"></h3><p class="phone"></p><p class="courier"></p><label>Tracking number<input class="tracking-input" required></label><button class="primary send-tracking"><i class="fa-brands fa-whatsapp"></i> Send tracking</button></article></template>
-  <script type="module" src="app.js"></script>
+  <script type="module" src="app.js?v=4"></script>
 </body></html>
