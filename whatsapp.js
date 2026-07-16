@@ -69,11 +69,8 @@ export function openWhatsApp(phone, message) {
 export function bookingMessage() {
 
     return `Thank You for placing your order.
-
 Your parcel has been packed successfully.
-
-Tracking details will be shared shortly.
-
+Courier Tracking details will be shared shortly.
 Thank You.`;
 
 }
