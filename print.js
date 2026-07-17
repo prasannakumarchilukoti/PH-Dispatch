@@ -1,7 +1,7 @@
-export function printLabel(booking) {
-  const win = window.open('', '_blank', 'width=600,height=800');
-  if (!win) throw new Error('Please allow pop-ups to print labels.');
-  const esc = value => String(value || '').replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-  win.document.write(`<!doctype html><title>${esc(booking.orderNo)}</title><style>@page{size:100mm 150mm;margin:5mm}body{font:12pt Arial;margin:0}.line{border-top:1px solid #000;margin:7mm 0}h1{font-size:19pt;margin:0 0 4mm}h2{font-size:10pt;margin:0 0 2mm}p{white-space:pre-line;margin:0;line-height:1.35}.meta{display:flex;justify-content:space-between;font-size:9pt}</style><h1>PAVAN HANDLOOMS</h1><div class="meta"><span>Date: ${esc(booking.date)}</span><b>${esc(booking.orderNo)}</b></div><div class="line"></div><h2>TO</h2><p><b>${esc(booking.customerName)}</b>\n${esc(booking.mobile)}\n${esc(booking.toAddress)}</p><div class="line"></div><h2>FROM</h2><p>${esc(booking.fromAddress)}</p><div class="line"></div><p><b>Courier:</b> ${esc(booking.courier)}\nThank you for placing Order</p><script>addEventListener('load',()=>print())<\/script>`);
-  win.document.close();
+export const cleanPhone = phone => { const digits=String(phone || '').replace(/\D/g, ''); if (digits.length===10) return `+91${digits}`; if (digits.length===11 && digits.startsWith('0')) return `+91${digits.slice(1)}`; if (digits.length===12) return `+${digits}`; return `+${digits.replace(/^0/, '91')}`; };
+export function openWhatsApp(phone, message) {
+  if (!phone) throw new Error('A WhatsApp number is required.');
+  window.open(`https://wa.me/${cleanPhone(phone).replace('+','')}?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
 }
+export const bookingMessage = type => type === 'reseller' ? 'THANK YOU FOR PLACING ORDER\n\nYOUR ORDER IS PACKED AND SHIPPED.\n\nTRACKING DETAILS WILL BE SHARED SHORTLY' : 'THANK YOU FOR PLACING ORDER FROM PAVAN HANDLOOMS\n\nYOUR PATTU SAREE HAS BEEN PACKED AND SHIPMENT DONE.\n\nWILL SEND YOU TRACKING DETAILS SHORTLY';
+export const trackingMessage = (number, link) => `Dear Customer,\n\nYour parcel has been shipped.\n\nTracking Number\n${number}\n\nTrack Here\n${link}\n\nThank You.`;

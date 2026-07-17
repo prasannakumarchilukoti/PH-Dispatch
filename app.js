@@ -1,6 +1,6 @@
 import { saveBooking, updateBooking, removeBooking, saveEntity, removeEntity, watch, listBookings } from './database.js';
 import { openWhatsApp, bookingMessage, trackingMessage } from './whatsapp.js';
-import { printLabel } from './print.js';
+import { printLabel } from './print.js?v=2';
 
 const $ = id => document.getElementById(id);
 const SENDER = 'PAVAN HANDLOOMS\nTeachers Colony\nVenkatagiri - 524132\n9490463419\n9618258497';
