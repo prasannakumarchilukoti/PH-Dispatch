@@ -7,7 +7,7 @@ const SENDER = 'PAVAN HANDLOOMS\nTeachers Colony\nVenkatagiri - 524132\n94904634
 const state = { bookings: [], customers: [], resellers: [], editingId: null };
 const today = () => new Date().toLocaleDateString('en-GB');
 const ymd = () => new Date().toISOString().slice(0, 10);
-const trackingUrl = () => 'https://www.dtdc.in/tracking';
+const trackingUrl = () => 'https://www.dtdc.com/track-your-shipment/';
 function toast(message, error = false) { const el = $('toast'); el.textContent = message; el.style.background = error ? '#9c2c25' : '#27201e'; el.classList.add('show'); clearTimeout(toast.timer); toast.timer=setTimeout(()=>el.classList.remove('show'), 3400); }
 function orderNumber() { const key=`ph-dispatch-order-${ymd()}`; const next=(Number(localStorage.getItem(key)) || 0)+1; localStorage.setItem(key,String(next)); return `PH${String(next).padStart(3,'0')}`; }
 function currentBooking() { return { customerName:$('customerName').value.trim(), mobile:$('mobile').value.trim(), orderNo:$('orderNo').value.trim(), date:$('date').value, toAddress:$('toAddress').value.trim(), fromAddress:$('fromAddress').value.trim(), courier:$('courier').value, message:$('message').value.trim(),bookingType:document.querySelector('input[name="senderType"]:checked').value }; }
